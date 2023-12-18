@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display1</title>
+</head>
+<body>
+    <div>
+        @{
+            int num = 0;
+
+        }
+
+        <table border="1" align="center" width="15%" style="text-align:center;background-color:yellow;color:red;border-block-color:black;">
+            <tr><th>Sno</th><th>Color Name</th></tr>
+            @foreach (string color in (List<string>)ViewData["color"])
+            {
+                <tr>
+                    <td> @{num += 1;
+                    }
+                    @num</td>
+                    <td>@color</td>
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</body>
+</html>
