@@ -16,5 +16,18 @@ namespace MVCDataTransfer.Controllers
         {
             return View();
         }
+        public ViewResult Index2()
+        {
+            return View();
+        }
+        public ViewResult Index3()
+        {
+            return View();
+        }
+        public ViewResult Display2()
+        {
+            return View();
+        }
+
     }
 }

@@ -52,6 +52,40 @@ namespace MVCDataTransfer.Controllers
             TempData["Price"] = price;
             return RedirectToAction("Index1", "Test");
         }
+        public ViewResult index6(int? id,string Name,double? Price)
+        {
+            HttpCookie coockie = new HttpCookie("ProductCookie");
+            coockie["Id"] = id.ToString();
+            coockie["Name"] = Name;
+            coockie["Price"] =Price.ToString();
+            coockie.Expires = DateTime.Now.AddDays(3);
+            Response.Cookies.Add(coockie);
+            return View();
+        }
+        public ViewResult Index7()
+        {
+            return View();
+        }
+        public RedirectToRouteResult Index8(int? Id,string Name,Double? price)
+        {
+            Session["Id"] = Id;
+            Session["Name"] = Name;
+            Session["Price"] = price;
+            return RedirectToAction("Index9");
+        }
+        public ViewResult Index9()
+        {
+            return View();
+        }
+        public RedirectToRouteResult Index10(int? id, string name, double? price)
+        {
+            Session["Id"] = id;
+            Session["Name"] = name;
+            Session["Price"] = price;
+            return RedirectToAction("Index3", "Test");
+        }
+
+
 
     }
 }
