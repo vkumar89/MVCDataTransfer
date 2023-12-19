@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index12</title>
+</head>
+<body>
+    <div>
+
+        <table border="1" align="center" width="15%">
+            <caption>Product Details</caption>
+            <tr>
+                <td>Id</td>
+                <td>@System.Web.HttpContext.Current.Application["Id"]</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@System.Web.HttpContext.Current.Application["Name"]</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    @{
+                        double? price = Convert.ToDouble(System.Web.HttpContext.Current.Application["Price"]);
+                        price = price + (price * 10 / 100);
+                        <text>@price
+                        </text>
+                    }
+                </td>
+            </tr>
+
+        </table>
+        <center>Click to launch new <a href="/Test/Index4">Page</a>.</center>
+
+
+    </div>
+</body>
+</html>

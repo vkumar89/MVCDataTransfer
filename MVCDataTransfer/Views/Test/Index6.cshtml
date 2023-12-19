@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index6</title>
+</head>
+<body>
+    <div>
+
+
+        <table border="1" align="center" width="15%">
+            <caption>Product Details</caption>
+            <tr>
+                <td>Id</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    @{
+                        double? price = Model.Price;
+                        price = price + (price * 10 / 100);
+                        <text>@price
+                        </text>
+                    }
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>

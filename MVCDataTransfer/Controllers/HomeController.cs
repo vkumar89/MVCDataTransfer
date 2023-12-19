@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVCDataTransfer.Models;
 namespace MVCDataTransfer.Controllers
 {
     public class HomeController : Controller
@@ -84,8 +85,43 @@ namespace MVCDataTransfer.Controllers
             Session["Price"] = price;
             return RedirectToAction("Index3", "Test");
         }
+        public ViewResult Index11(int? id,string Name,double? Price)
+        {
+            System.Web.HttpContext.Current.Application.Lock();
+            System.Web.HttpContext.Current.Application["Id"]=id;
+            System.Web.HttpContext.Current.Application["Name"]=Name;
+            System.Web.HttpContext.Current.Application["Price"]=Price;
+            System.Web.HttpContext.Current.Application.UnLock();
 
+            return View();
+        }
+        public ViewResult Index12()
+        {
+            return View();
+        }
+        public ViewResult Index13(int? id,string name,double? price)
+        {
+            var product= new {Id=id,Name=name,Price=price};
+            return View(product);
+        }
 
+        public RedirectToRouteResult Index14(int? id, string name, double? price)
+        {
+            var Product =new {Id=id,Name=name,Price=price};
+
+           return RedirectToAction("Index5","Test", Product);
+
+        }
+
+        public ViewResult Index15(int? id,string name,double? price)
+        {
+            Product product = new Product { Id = id, Name = name, Price = price };
+            return View(product);
+        }
+        public RedirectToRouteResult Index16(Product product)
+        {
+            return RedirectToAction("Index6","Test",product);
+        }
 
     }
 }

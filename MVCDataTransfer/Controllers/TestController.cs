@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCDataTransfer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,6 +29,20 @@ namespace MVCDataTransfer.Controllers
         {
             return View();
         }
+        public ViewResult Index4()
+        {
+            return View();
+        } 
+        public ViewResult Index5(int? id, string name, double? price)
+        {
+            var Product = new { Id = id, Name = name, Price = price };
+            return View(Product);
+        }
 
+        public ViewResult Index6(Product product)
+        {
+            return View(product);
+
+        }
     }
 }
